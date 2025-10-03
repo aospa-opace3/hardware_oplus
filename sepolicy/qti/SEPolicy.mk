@@ -4,7 +4,13 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-SEPOLICY_PLATFORM := $(subst device/qcom/sepolicy_vndr/,,$(SEPOLICY_PATH))
+ifeq ($(TARGET_BOARD_PLATFORM), kalama)
+SEPOLICY_PLATFORM := sm8550
+else ifeq ($(TARGET_BOARD_PLATFORM), waipio)
+SEPOLICY_PLATFORM := sm8450
+else 
+SEPOLICY_PLATFORM := legacy-um
+endif
 
 BOARD_VENDOR_SEPOLICY_DIRS += \
     hardware/oplus/sepolicy/qti/vendor \
