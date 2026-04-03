@@ -1,1 +1,2 @@
 binder_call(surfaceflinger, horae)
+allow surfaceflinger vendor_perf_service:service_manager find;
